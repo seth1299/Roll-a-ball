@@ -5,22 +5,11 @@ using UnityEngine;
 public class ObstaclePingPong : MonoBehaviour
 {
     [SerializeField]
-    public float distanceToCover;
+    private float distanceToCover;
     [SerializeField]
-    public float speed;
-    private Vector3 startPosition;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        startPosition = transform.position;
-    }
-
-    // Update is called once per frame
+    private float speed;
     void Update()
     {
-        Vector3 v = startPosition;
-        v.z = distanceToCover * Mathf.Sin(Time.time * speed);
-        transform.position = v; 
+        transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.PingPong( ( speed * Time.time ), distanceToCover ));
     }
 }

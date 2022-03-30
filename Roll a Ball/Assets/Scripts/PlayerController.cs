@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody rb;
+    [SerializeField]
+    private Rigidbody rb;
     [SerializeField]
     private float movementSpeed;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         if(Input.GetKey(KeyCode.A))
